@@ -11,6 +11,24 @@ data 数据源
 
 在以后每一次（/api/xxxx) 都需要设置	‘Authorization’："tokens"
 # 用户相关
+## 正则表达式
+```
+{
+  Remail: { //邮箱
+    test: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    msg: '邮箱格式不正确'
+  },
+  Rusername: {//4到16位 用户名
+    test: /^[\w-]{4,16}$/,
+    msg: '用户名格式不正确'
+  },
+  Rpassword: {//4到16位 密码
+    test: /^[\w-]{4,16}$/,
+    msg: '密码格式不正确'
+  },
+  Rkami:108
+}
+```
 ## 注册(/register) POST请求
 ```
 用户名 ：username
@@ -56,8 +74,26 @@ access_token ：access_token
 ```
 生成多少张：create_count
 
-每一张多少钱：create_count （整数 不要带小数点）
+每一张多少钱：create_money （整数 不要带小数点）
 
 ```
-## 删除卡密
+## 查询用户信息 (/api/admin/userinfo) post 请求
+```
+ 用户信息 ： id （可选）
+
+  //如果不传id将列出所有的用户
+```
+## 通过管理员修改用户密码（/api/admin/updatepassword） post请求
+```
+旧密码：oldpassword
+
+新的密码 ：newpassword
+
+用户id：userid
+```
+## 通过管理员修改用户余额（/api/admin/updatemoney） post请求
+```
+用户id ：userid
+想修改的余额 ：money
+```
 ..........
