@@ -11,6 +11,8 @@ data 数据源
 
 在以后每一次（/api/xxxx) 都需要设置	‘Authorization’："tokens"
 # 用户相关
+----用户测试账号 longans
+----用户测试密码 longans
 ## 正则表达式
 ```
 {
@@ -51,6 +53,13 @@ data 数据源
 	
 	请将tokens保存到本地存储
 ```
+## 修改密码 (/api/user/revisepasswordbyuser) POST 请求
+```
+旧密码 oldpassword
+
+新密码 newpassword
+
+```
 ## 卡密充值（/api/user/usekami）post请求
 ```
 用户名 ：username
@@ -65,9 +74,9 @@ data 数据源
 access_token ：access_token
 ```
 # 管理员相关
-···测试账号：user···
+···测试账号：admin···
 
-···测试密码：user···
+···测试密码：admin···
 ## 管理员登录
 与普通用户登录一致 后台自动判断是否为管理员
 ## 生成卡密（/api/admin/createkami） post请求
@@ -90,6 +99,12 @@ access_token ：access_token
 新的密码 ：newpassword
 
 用户id：userid
+```
+## 修改管理员密码（/api/admin/updatepassword） post请求
+```
+旧密码：oldpassword
+
+新的密码 ：newpassword
 ```
 ## 通过管理员修改用户余额（/api/admin/updatemoney） post请求
 ```
